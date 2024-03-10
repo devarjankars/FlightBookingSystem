@@ -25,6 +25,28 @@ async createFlight (data){
         
     }
 }
+async getFlight(FId){
+    try {
+        const flight= await this.airplainService.getAirplain(FId);
+        return flight;
+        
+    } catch (error) {
+        console.log(error);
+
+        
+    }
+}
+    async  getAllFlight(data){
+        try {
+            const flights=await this.flightService.getAllFlight(data);
+            return flights;
+            
+        } catch (err) {
+            console.log(err);
+            
+        }
+    }
+
 
 }
 

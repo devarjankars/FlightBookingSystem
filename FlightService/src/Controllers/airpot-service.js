@@ -1,12 +1,13 @@
-const {cityServices}=require('../services/index');
+const {airpotService}= require('../services/index');
 
-const cityService=new cityServices();
+const AirpotService=new airpotService()
+const httpCode=require('../Utils/httpCode')
 
 const Create=async (req,res)=>{
     try {
-        const response = await cityService.createCity(req.body);
+        const response= await AirpotService.Create(req.body);
 
-        return res.status(201).json({
+        return res.status(httpCode.successCode.CREATED).json({
             message:"succesfull created",
             data:response
         })
@@ -24,7 +25,7 @@ const Create=async (req,res)=>{
 const Delete =async (req,res)=>{
     try {
         
-        const response= await cityService.deleteCity(req.params.id);
+        const response= await AirpotService.Destroy(req.params.id);
         return res.status(200).json({
             message:"succesfull deleted",
             data:response
@@ -41,7 +42,7 @@ const Delete =async (req,res)=>{
 }
 const Update=async (req,res)=>{
     try {
-        const response= await cityService.updateCity(req.params.id,req.body);
+        const response= await AirpotService.Update(req.params.id,req.body);
         return res.status(201).json({
             message:"succesfull updated",
             response:response
@@ -57,7 +58,7 @@ const Update=async (req,res)=>{
 }
 const Get=async (req,res)=>{
     try {
-        const response= await cityService.getCity(req.params.id);
+        const response= await AirpotService.Get(req.params.id);
         return res.status(201).json({
             message:"succesfull get records",
             response:response
@@ -73,7 +74,7 @@ const Get=async (req,res)=>{
 }
 const getAll=async(req,res)=>{
     try{
-    const cities= await cityService.getAll();
+    const cities= await AirpotService.getAll();
         return res.status(201).json({
             message:"succesfull get records",
             response:cities,
