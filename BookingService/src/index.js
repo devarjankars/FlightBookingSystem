@@ -1,4 +1,4 @@
-require('dotenv').config;
+require('dotenv').config();
 const express= require('express');
 const app=express();
 const bodyParser= require('body-parser');
@@ -25,15 +25,13 @@ const db= require('./models/index');
 
 
 const server=async()=>{
-    try {
+   
        app.listen(process.env.PORT,()=>{
-        console.log('server started');
+        console.log(`server started ${process.env.PORT}`);
         // db.sequelize.sync({alter:true});
        })
         
-    } catch (error) {
-       console.log(error); 
-    }
+    
 }
 
 server()

@@ -5,7 +5,7 @@ const CityRepo= require('./repository/City-Repo')
 const app=express();
 const apiRoutes=require('./routes/index')
 
-// const {Airplain}= require('./models/index');
+const db= require('./models/index');
 
 
 const  setupServer= async ()=>{

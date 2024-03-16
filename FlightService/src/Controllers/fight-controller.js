@@ -31,7 +31,7 @@ try {
 const getFlight= async (req,res)=>{
     try {
         // console.log(req.body)
-        const flight=await flightService.createFlight(req.body);
+        const flight=await flightService.getFlight(req.params.id);
         return res.status(201)
         .json({
             message:"Succesfully gets the  flight",
@@ -73,4 +73,27 @@ const getAll=async(req,res)=>{
         
     }
 }
-module.exports={Create,getFlight, getAll}
+
+const Update= async (req,res)=>{
+    try {
+        console.log(req.body,req.params)
+        const flight=await flightService.Update(req.params, req.body);
+        return res.status(201)
+        .json({
+            message:"Succesfully Updated the  flight",
+             data:flight,
+             err:{},
+    
+        })
+    } catch (error) {
+        console.log(error);
+        return res.status(404).json({
+            message:"Something went Wrong in controllers",
+            err:error.message,
+        });
+    
+        
+    }
+    
+}
+module.exports={Create,getFlight, getAll,Update}

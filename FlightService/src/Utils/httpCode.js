@@ -4,8 +4,8 @@ const ClientSideErrorCode= Object.freeze({
 ,   NOT_FOUND:404
 })
 const ServerSideErrorCode= Object.freeze({
-    INTERNAL_SERVER_ERROR=500,
-    NOT_SUPPORTED=505
+    INTERNAL_SERVER_ERROR:500,
+    NOT_SUPPORTED:505
 })
 
     const successCode=Object.freeze({

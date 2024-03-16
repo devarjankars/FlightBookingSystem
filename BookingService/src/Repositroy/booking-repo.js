@@ -9,7 +9,8 @@ class BookingRepo{
 
     async Create(data){
         try {
-
+          const booking= await Booking.create(data);
+          return booking;
             
         } catch (error) {
             if(error.name===SequelizeValidationError)
@@ -29,11 +30,20 @@ class BookingRepo{
 
     }
 
-    async Update(){
+    async Update( Fid,data){
+        try {
+            const response= await Booking.update(data,{where:{
+                id:Fid
+            }})
+            
+        } catch (error) {
+
+            console.log(error.message);
+        }
 
     }
     async Destroy(){
-        
+
     }
 }
 module.exports=BookingRepo;

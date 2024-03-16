@@ -11,6 +11,7 @@ constructor(){
 
 async createFlight (data){
     try {
+        console.log(data);
         console.log(data.airplainId);
         const airplain= await this.airplainService.getAirplain(data.airplainId);
         const  fligt= await  this.flightService.createFight({
@@ -27,7 +28,7 @@ async createFlight (data){
 }
 async getFlight(FId){
     try {
-        const flight= await this.airplainService.getAirplain(FId);
+        const flight= await this.flightService.getFight(FId);
         return flight;
         
     } catch (error) {
@@ -43,6 +44,17 @@ async getFlight(FId){
             
         } catch (err) {
             console.log(err);
+            
+        }
+    }
+    async Update(FId,data){
+        try {
+            const flight= await this.flightService.Update(FId,data);
+            return flight;
+            
+        } catch (error) {
+            console.log(error);
+    
             
         }
     }

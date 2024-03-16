@@ -8,6 +8,7 @@ constructor(
     statusCode=StatusCodes.INTERNAL_SERVER_ERROR,
 
 ){
+    super()
     this.name="service Error",
     this.explaination=explaination,
     this.statusCode=statusCode,

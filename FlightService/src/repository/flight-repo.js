@@ -40,7 +40,7 @@ class FigthRepo{
   }
   async getFight(FId){
    try {
-      const flight= await Flight.findByPK(FId)
+      const flight= await Flight.findByPk(FId)
       return flight;
       
    } catch (error) {
@@ -61,6 +61,22 @@ class FigthRepo{
       throw error;
    }
   }
+  async Update( FId,data){
+   try {
+      console.log(data);
+      let seat= data.totalSeats
+      console.log(FId.id)
+      const flight=await Flight.update( {totalSeats:seat},{
+         where: { id:FId.id  }
+      })
+      return flight;
+   } catch (error) {
+      console.log(error.message);
+      throw error;
+   }
+  }
+
 
 }
+
 module.exports=FigthRepo;

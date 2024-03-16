@@ -15,6 +15,8 @@ router.patch('/city/:id',controller.Update)
 router.post('/flight',flightController.Create);
 
 router.get('/flights',flightController.getAll)
+router.get('/flight/:id',flightController.getFlight);
+router.patch('/flight/:id', flightController.Update)
 
 //Airpot
 
