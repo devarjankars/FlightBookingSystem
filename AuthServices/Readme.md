@@ -15,3 +15,6 @@ and the server can decript the token and read the user creditional and serv acco
 
 
 ### authorization=> it is next steps after authentication, it is process in which we can identify the capabilities of user what user can do on the application
+
+
+####cli  
