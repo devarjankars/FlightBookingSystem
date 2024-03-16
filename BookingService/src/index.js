@@ -28,7 +28,7 @@ const server=async()=>{
     try {
        app.listen(process.env.PORT,()=>{
         console.log('server started');
-        db.sequelize.sync({alter:true});
+        // db.sequelize.sync({alter:true});
        })
         
     } catch (error) {
